@@ -1,0 +1,164 @@
+{
+  "totalPages": 2,
+  "currentPage": 0,
+  "total": 6,
+  "associates": [
+    {
+      "userId": "5dd5de75-a15b-4b38-a876-3888b8ad1f70",
+      "associateId": "CTS1www5",
+      "name": "deepak3",
+      "email": "deepak40@gmail.com",
+      "mobile": "0685117142",
+      "skills": {
+        "technical": [
+          {
+            "name": "DOCKER1",
+            "level": 20
+          },
+          {
+            "name": "HTML-CSS-JAVASCRIPT",
+            "level": 2
+          }
+        ],
+        "nonTechnical": [
+          {
+            "name": "SPOKEN",
+            "level": 2
+          },
+          {
+            "name": "COMMUNICATION",
+            "level": 2
+          }
+        ]
+      }
+    },
+    {
+      "userId": "e8e73cda-d741-42fa-8369-4fb60512ca82",
+      "associateId": "CTS1www6",
+      "name": "deepak3",
+      "email": "deepak40@gmail.com",
+      "mobile": "0685117142",
+      "skills": {
+        "technical": [
+          {
+            "name": "DOCKER1",
+            "level": 20
+          },
+          {
+            "name": "HTML-CSS-JAVASCRIPT",
+            "level": 2
+          }
+        ],
+        "nonTechnical": [
+          {
+            "name": "APTITUDE",
+            "level": 6
+          },
+          {
+            "name": "COMMUNICATION",
+            "level": 4
+          },
+          {
+            "name": "SPOKEN",
+            "level": 2
+          }
+        ]
+      }
+    },
+    {
+      "userId": "11be5f85-3e2f-4263-9cd3-0377e61b815e",
+      "associateId": "CTS1www8",
+      "name": "deepak3",
+      "email": "deepak40@gmail.com",
+      "mobile": "0685117142",
+      "skills": {
+        "technical": [
+          {
+            "name": "DOCKER1",
+            "level": 20
+          },
+          {
+            "name": "HTML-CSS-JAVASCRIPT",
+            "level": 2
+          }
+        ],
+        "nonTechnical": [
+          {
+            "name": "APTITUDE",
+            "level": 6
+          },
+          {
+            "name": "COMMUNICATION",
+            "level": 4
+          },
+          {
+            "name": "SPOKEN",
+            "level": 2
+          }
+        ]
+      }
+    },
+    {
+      "userId": "c4b09de5-199c-422b-83b8-7e0019324bd9",
+      "associateId": "CTS1www9",
+      "name": "deepak3",
+      "email": "deepak40@gmail.com",
+      "mobile": "0685117142",
+      "skills": {
+        "technical": [
+          {
+            "name": "DOCKER1",
+            "level": 20
+          },
+          {
+            "name": "HTML-CSS-JAVASCRIPT",
+            "level": 2
+          }
+        ],
+        "nonTechnical": [
+          {
+            "name": "APTITUDE",
+            "level": 6
+          },
+          {
+            "name": "COMMUNICATION",
+            "level": 4
+          },
+          {
+            "name": "SPOKEN",
+            "level": 2
+          }
+        ]
+      }
+    },
+    {
+      "userId": "5e4c3135-109f-4f5c-a3d6-7de61f2388ca",
+      "associateId": "CTS1ww12",
+      "name": "deepak3",
+      "email": "deepak40@gmail.com",
+      "mobile": "0685117142",
+      "skills": {
+        "technical": [
+          {
+            "name": "DOCKER",
+            "level": 20
+          },
+          {
+            "name": "HTML-CSS-JAVASCRIPT",
+            "level": 11
+          }
+        ],
+        "nonTechnical": [
+          {
+            "name": "COMMUNICATION",
+            "level": 16
+          },
+          {
+            "name": "SPOKEN",
+            "level": 5
+          }
+        ]
+      }
+    }
+  ]
+}

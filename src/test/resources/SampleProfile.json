@@ -1,0 +1,29 @@
+{
+  "userId": "c8579304-55fa-4e29-a5a6-a83d0aa199e7",
+  "associateId": "CTS12346",
+  "name": "deepak3",
+  "email": "deepak40@gmail.com",
+  "mobile": "0685117142",
+  "skills": {
+    "technical": [
+      {
+        "name": "DOCKER",
+        "level": 20
+      },
+      {
+        "name": "HTML-CSS-JAVASCRIPT",
+        "level": 11
+      }
+    ],
+    "nonTechnical": [
+      {
+        "name": "SPOKEN",
+        "level": 5
+      },
+      {
+        "name": "COMMUNICATION",
+        "level": 16
+      }
+    ]
+  }
+}
