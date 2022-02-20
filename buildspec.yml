@@ -16,9 +16,8 @@ phases:
 reports:
   jacoco-report:
     files:
-      - 'test-results/jacoco-coverage-report.xml'
+      - 'target/site/jacoco/jacoco.xml'
     file-format: 'JACOCOXML'
-
 artifacts:
   files:
   - target/admin-0.0.1-SNAPSHOT.jar
