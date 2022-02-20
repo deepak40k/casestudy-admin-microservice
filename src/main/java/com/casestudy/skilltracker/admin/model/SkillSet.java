@@ -3,6 +3,7 @@ package com.casestudy.skilltracker.admin.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.validation.Valid;
 import java.io.Serializable;
@@ -14,6 +15,7 @@ import java.util.List;
 @Setter
 @Getter
 @NoArgsConstructor
+@ToString
 public class SkillSet implements Serializable {
     @Valid
     private List<Skill> technical=new ArrayList<>();

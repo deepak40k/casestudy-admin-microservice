@@ -1,11 +1,14 @@
 package com.casestudy.skilltracker.admin.unit.mq;
 
+import com.casestudy.skilltracker.admin.dto.AssociateProfileResponse;
+import com.casestudy.skilltracker.admin.mapper.DTOMapper;
 import com.casestudy.skilltracker.admin.model.AssociateProfile;
 import com.casestudy.skilltracker.admin.mq.receiver.impl.RabbitMqReceiver;
 import com.casestudy.skilltracker.admin.repository.AssociateRepository;
 import com.casestudy.skilltracker.admin.utility.ConditionType;
 import com.casestudy.skilltracker.admin.utility.TestUtility;
-import com.casestudy.skilltracker.admin.dto.AssociateProfileResponse;
+import net.spy.memcached.MemcachedClient;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +25,19 @@ class MQReceiverTest {
 	private RabbitMqReceiver rabbitMqReceiver;
 
 	@MockBean
+	private  MemcachedClient memcachedClient;
+
+	@MockBean
     AssociateRepository associateRepository;
 
+	@Autowired
+	DTOMapper<AssociateProfileResponse, AssociateProfile> mapper;
+
+	@BeforeEach
+	void init() {
+		AssociateProfileResponse associateProfileResponse = TestUtility.getSampleRequest(ConditionType.CREATE_PROFILE);
+		Mockito.when(this.associateRepository.save(Mockito.any(AssociateProfile.class))).thenReturn(mapper.mapToEntity(associateProfileResponse));
+	}
 	@Test
 	void testCreateProfile_Success() {
 		AssociateProfileResponse associateProfileResponse= TestUtility.getSampleRequest(ConditionType.CREATE_PROFILE);
@@ -37,7 +51,5 @@ class MQReceiverTest {
 		rabbitMqReceiver.receiveMessage(associateProfileResponse);
 		verify(associateRepository,times(0)).save(Mockito.any(AssociateProfile.class));
 	}
-
-
 
 }

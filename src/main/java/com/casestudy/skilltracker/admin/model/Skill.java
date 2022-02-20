@@ -4,6 +4,7 @@ import com.casestudy.skilltracker.admin.validator.ValidSkill;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Max;
@@ -14,6 +15,7 @@ import java.io.Serializable;
 @Setter
 @Getter
 @Valid
+@ToString
 public class Skill implements Serializable, Comparable<Skill> {
     static final long serialVersionUID = 1L;
     @NotNull

@@ -4,6 +4,7 @@ import com.casestudy.skilltracker.admin.model.SkillSet;
 import com.casestudy.skilltracker.admin.validator.AssociateID;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.springframework.data.annotation.Id;
 
 import javax.validation.Valid;
@@ -14,6 +15,7 @@ import javax.validation.constraints.Size;
 @Getter
 @Setter
 @Valid
+@ToString
 public class AssociateProfileResponse {
     static final long serialVersionUID = 1L;
     @NotNull

@@ -5,8 +5,8 @@ import com.casestudy.skilltracker.admin.mapper.DTOMapper;
 import com.casestudy.skilltracker.admin.model.AssociateProfile;
 import com.casestudy.skilltracker.admin.repository.AssociateRepository;
 import com.casestudy.skilltracker.admin.service.AssociateService;
+import com.casestudy.skilltracker.admin.service.MemcachedService;
 import lombok.extern.slf4j.Slf4j;
-import net.spy.memcached.MemcachedClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -24,8 +24,10 @@ public class AssociateServiceImpl implements AssociateService {
     AssociateRepository associateRepository;
     @Autowired
     DTOMapper<SearchResponse, Page<AssociateProfile>> mapper;
+   // @Autowired
+   // private MemcachedClient memcachedClient;
     @Autowired
-    private MemcachedClient memcachedClient;
+    private MemcachedService<AssociateProfile> memcachedService;
 
     public SearchResponse findBySkill(String value, int page, int size) {
         Pageable paging = PageRequest.of(page, size);
@@ -42,7 +44,10 @@ public class AssociateServiceImpl implements AssociateService {
     public SearchResponse findByAssociateId(String value, int page, int size) {
         Pageable paging = PageRequest.of(page, size);
         Page<AssociateProfile> associateProfilesPage;
-        AssociateProfile associateProfile = (AssociateProfile) memcachedClient.get(value);
+        AssociateProfile associateProfile = null;
+        associateProfile=memcachedService.get(value);
+        /*if (memcachedClient != null)
+            associateProfile = (AssociateProfile) memcachedClient.get(value);*/
         if (associateProfile != null) {
             List<AssociateProfile> associateProfiles = Arrays.asList(associateProfile);
             associateProfilesPage = new PageImpl<>(associateProfiles, paging, associateProfiles.size());
@@ -51,7 +56,7 @@ public class AssociateServiceImpl implements AssociateService {
         }
         associateProfilesPage = associateRepository.findByAssociateId(value, paging);
         if (associateProfilesPage.getContent().size() > 0)
-            memcachedClient.set(value, 3600, associateProfilesPage.getContent().get(0));
+            memcachedService.set(value, associateProfilesPage.getContent().get(0));
         return mapper.mapToDto(associateProfilesPage);
     }
 }

@@ -7,7 +7,7 @@
     </appender>
 
     <appender name="RollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>./log/admin-app.log</file>
+        <file>./logs/admin-app.log</file>
         <encoder>
             <pattern>%d  %-5level - %msg%n</pattern>
         </encoder>

@@ -26,9 +26,9 @@ public class AdminController {
                                                @RequestParam(required = false,defaultValue = "0", name = "page") int page,
                                                @RequestParam(required = false,defaultValue = "5", name = "size") int size
                                                ) {
-        log.info("Search Criterion: " + criterion+",Search Value:"+value);
+        log.info("Search request received for criterion: {} and  Value:{}",criterion,value);
         SearchResponse response=  serviceService.find(criterion,value,page,size);
-        log.info("Response:"+response.toString());
+        log.debug("Search response :{}",response.toString());
         return new ResponseEntity(response, HttpStatus.OK);
     }
 

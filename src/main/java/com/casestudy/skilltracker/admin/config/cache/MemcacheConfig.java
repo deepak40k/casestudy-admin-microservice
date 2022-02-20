@@ -1,5 +1,6 @@
-package com.casestudy.skilltracker.admin.cache.config;
+package com.casestudy.skilltracker.admin.config.cache;
 
+import lombok.extern.slf4j.Slf4j;
 import net.spy.memcached.MemcachedClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
@@ -12,6 +13,7 @@ import java.net.InetSocketAddress;
 
 @EnableCaching
 @Configuration
+@Slf4j
 public class MemcacheConfig extends CachingConfigurerSupport {
 
     @Value("${memcached.port}")
@@ -22,8 +24,13 @@ public class MemcacheConfig extends CachingConfigurerSupport {
     public MemcachedClient memcachedClient(){
         try {
             return new MemcachedClient(new InetSocketAddress(configEndpoint,port));
-        }catch (IOException e){
-            e.printStackTrace();
+        }catch (Exception e ){
+            log.error(e.getMessage());
+            try {
+                return new MemcachedClient(new InetSocketAddress("localhost",port));
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
             return null;
         }
     }
