@@ -13,6 +13,12 @@ phases:
   post_build:
     commands:
     - echo Build completed on `date`
+reports:
+  jacoco-report:
+    files:
+      - 'test-results/jacoco-coverage-report.xml'
+    file-format: 'JACOCOXML'
+
 artifacts:
   files:
   - target/admin-0.0.1-SNAPSHOT.jar
